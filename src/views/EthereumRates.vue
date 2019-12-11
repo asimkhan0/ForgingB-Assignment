@@ -23,7 +23,7 @@
 import axios from "axios";
 
 export default {
-  name: "home",
+  name: "EthereumRates",
   data() {
     return {
       ethData: {},
@@ -65,6 +65,7 @@ export default {
 
 .heading {
   background-color: grey;
+  color: white;
 }
 
 .description {

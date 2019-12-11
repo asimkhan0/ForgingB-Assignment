@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <Home />
+    <EthereumRates />
   </div>
 </template>
 
 <script>
-import Home from "./views/Home";
+import EthereumRates from "./views/EthereumRates";
 export default {
   name: 'App',
   components: {
-    Home
+    EthereumRates
   }
 }
 </script>
