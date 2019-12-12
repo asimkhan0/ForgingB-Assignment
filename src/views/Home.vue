@@ -27,6 +27,8 @@
 
 <script>
 import Password from "vue-password-strength-meter";
+var querystring = require("querystring");
+
 import axios from "axios";
 export default {
   name: "home",
@@ -35,23 +37,42 @@ export default {
   },
   data() {
     return {
-      email: "",
-      password: ""
+      email: "test001@gmaill.com",
+      password: "Passworddd1"
     };
   },
   methods: {
     login() {
-      const formData = new FormData();
-      formData.append("email", this.email);
-      formData.append("password", this.password);
-      let config = {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-        }
-      };
+      // const formData = new FormData();
+      // formData.append("email", this.email);
+      // formData.append("password", this.password);
+      // let config = {
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+      //   }
+      // };
+      // axios
+      //   .post("http://api.forgingblock.io/signin", {
+      //       email: this.email,
+      //       password: this.password
+      //     })
+      //   .then(response => {
+      //     console.log(response);
+      //   });
       axios
-        .post("/signin", formData, config)
-        .then(response => {
+        .post(
+          "http://api.forgingblock.io/signin",
+          querystring.stringify({
+            username: this.email,
+            password: this.password
+          }),
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+          }
+        )
+        .then(function(response) {
           console.log(response);
         });
     }
