@@ -37,8 +37,8 @@ export default {
   },
   data() {
     return {
-      email: "test001@gmaill.com",
-      password: "Passworddd1"
+      email: "test001@gmail.com",
+      password: "Passworddd1" // this pwd would fail
     };
   },
   methods: {
@@ -61,9 +61,9 @@ export default {
       //   });
       axios
         .post(
-          "http://api.forgingblock.io/signin",
+          "https://api.forgingblock.io/signin", // should be https
           querystring.stringify({
-            username: this.email,
+            email: this.email, // why username here (mistype?)
             password: this.password
           }),
           {
@@ -73,7 +73,7 @@ export default {
           }
         )
         .then(function(response) {
-          console.log(response);
+          console.log(response); // no display for the response
         });
     }
   }
